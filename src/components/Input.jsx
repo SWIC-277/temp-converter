@@ -1,11 +1,17 @@
 import PropTypes from "prop-types";
 import capitalize from "lodash.capitalize";
 
-export default function Input({ label, value, handleChange }) {
+export default function Input({ label, value, onChange }) {
   return (
     <div>
       <label htmlFor={label}>{capitalize(label)}</label>
-      <input type="number" id={label} value={value} onChange={handleChange} />
+      <input
+        type="number"
+        id={label}
+        value={value}
+        onChange={onChange}
+        data-unit={label.slice(0, 1).toUpperCase()}
+      />
     </div>
   );
 }
@@ -13,5 +19,5 @@ export default function Input({ label, value, handleChange }) {
 Input.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
