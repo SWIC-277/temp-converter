@@ -1,8 +1,23 @@
-import { render, screen } from "@testing-library/react";
 import App from "./App";
-import { expect, test } from "vitest";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
-test("renders correctly", () => {
+it("converts °C to °F", async () => {
+  const user = userEvent.setup();
+
   render(<App />);
-  expect(screen.getByText("Hello world!")).toBeInTheDocument();
+
+  await user.type(screen.getByLabelText(/celsius/i), "100");
+
+  expect(screen.getByLabelText(/fahrenheit/i)).toHaveValue(212);
+});
+
+it("converts °F to °C", async () => {
+  const user = userEvent.setup();
+
+  render(<App />);
+
+  await user.type(screen.getByLabelText(/fahrenheit/i), "212");
+
+  expect(screen.getByLabelText(/celsius/i)).toHaveValue(100);
 });
