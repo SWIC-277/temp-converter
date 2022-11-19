@@ -6,8 +6,8 @@ export default function App() {
 
   return (
     <main className="flex gap-x-32 mt-16 justify-center">
-      <Input label="celsius" value={state.C} onChange={setTemp} />
-      <Input label="fahrenheit" value={state.F} onChange={setTemp} />
+      <Input label="celsius" value={state.C} handleChange={setTemp} />
+      <Input label="fahrenheit" value={state.F} handleChange={setTemp} />
     </main>
   );
 }

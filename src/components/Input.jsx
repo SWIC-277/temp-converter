@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import capitalize from "lodash.capitalize";
 
-export default function Input({ label, value, onChange }) {
+export default function Input({ label, value, handleChange }) {
   return (
     <div className="w-min">
       <label htmlFor={label}>{capitalize(label)}</label>
@@ -20,5 +20,5 @@ export default function Input({ label, value, onChange }) {
 Input.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
