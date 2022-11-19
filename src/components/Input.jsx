@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import capitalize from "lodash.capitalize";
+import PropTypes from "prop-types";
 
 export default function Input({ label, value, handleChange }) {
   return (
@@ -9,7 +9,7 @@ export default function Input({ label, value, handleChange }) {
         type="number"
         id={label}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         data-unit={label.slice(0, 1).toUpperCase()}
         className="w-32 border px-1 mt-1"
       />
