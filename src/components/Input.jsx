@@ -19,6 +19,6 @@ export default function Input({ label, value, handleChange }) {
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   handleChange: PropTypes.func.isRequired,
 };
